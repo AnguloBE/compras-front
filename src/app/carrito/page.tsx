@@ -17,20 +17,10 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ArrowLeft, Trash2, Plus, Minus, ShoppingCart, Clock } from 'lucide-react';
 import { toast } from 'sonner';
-import { DiaSemana, HorarioAtencion } from '@/types';
-
-interface Ubicacion {
-  id: string;
-  nombre: string;
-  costo: number;
-  activo: boolean;
-}
+import { DiaSemana, HorarioAtencion, Ubicacion } from '@/types';
 
 const checkoutSchema = z.object({
-  ubicacionEnvio: z.string({
-    required_error: 'Debes seleccionar una ubicación de envío',
-    invalid_type_error: 'Debes seleccionar una ubicación de envío',
-  }).min(1, 'Debes seleccionar una ubicación de envío'),
+  ubicacionEnvio: z.string().min(1, 'Debes seleccionar una ubicación de envío'),
   fechaEncargo: z.string().optional(),
   notas: z.string().optional(),
 });

@@ -97,6 +97,7 @@ export interface Pedido {
   fechaEncargo?: string;
   notas?: string;
   fechaEntrega?: string;
+  ubicacionEnvio?: string;
   createdAt: string;
   detalles: DetallePedido[];
 }
@@ -112,5 +113,12 @@ export interface HorarioAtencion {
   horaApertura: string;
   horaCierre: string;
   cerrado: boolean;
+  activo: boolean;
+}
+
+export interface Ubicacion {
+  id: string;
+  nombre: string;
+  costo: number;
   activo: boolean;
 }
